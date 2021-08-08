@@ -1,0 +1,39 @@
+<mat-card class="example-container">
+        <div class="form-container">
+            <form [formGroup]="gastoForm" (submit)="submit()">
+                <h3>Cadastro de Gasto</h3>
+                <br>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label> Nome Do Gasto
+                    </mat-label>
+                    <input matInput formControlName="nome" type="text" required>
+                    <mat-error *ngIf="nome.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label> Data Do Gasto
+                    </mat-label>
+                    <input matInput formControlName="data" required type="date">
+                    <mat-error *ngIf="data.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill" typ>
+                    <mat-label> Valor Do Gasto
+                    </mat-label>
+                    <input matInput formControlName="valor" type="number" required >
+                    <mat-error *ngIf="valor.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <div style="width: 50%;">
+             
+                    <mat-label style="margin: 7px;">Opção </mat-label>
+                    <mat-radio-group [formControl]="status" appearance="fill">
+                        <mat-radio-button value=true style="margin-right: 10px;"> <span>Retroativo</span> </mat-radio-button>
+                        <mat-radio-button value=false style="margin-left: 20px;"> <span>Único</span> </mat-radio-button>
+                        <mat-error *ngIf="status.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-radio-group>
+                
+                </div>
+                <br>
+                <br>
+                <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+            </form>
+        </div>
+</mat-card>

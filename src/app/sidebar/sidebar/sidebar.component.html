@@ -1,0 +1,37 @@
+<mat-toolbar style="background-color: #757474">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+      <img src="/assets/img/logo.png" alt="" class="logo">
+        <span class="example-spacer"></span>
+        <div class="active-pink active-pink-2 mb-3">
+            <mat-form-field>
+                <input matInput class="" type="search" id="" aria-label="">
+            </mat-form-field>
+        </div>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>search</mat-icon>
+        </button>
+
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container >
+    <mat-sidenav class="side-nav" #sidenav style="background-color: #F5F2F2">
+        <mat-nav-list routerLinkActive="active">
+            <p class="side-nav" *ngFor="let menuItem of menuItems">
+                <a (click)="sidenav.close()" class="nav-link" [routerLink]="[menuItem.path]">
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <span class="itens">{{menuItem.title}}</span>
+                </a>
+            </p>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

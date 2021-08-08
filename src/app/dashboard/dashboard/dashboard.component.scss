@@ -1,0 +1,68 @@
+
+@media (max-width: 640px) {
+  .card-responsiv {
+    display: none !important;
+    
+    }
+  .responsiv-text{
+  font-size: 20px !important;
+  }
+}
+
+.mat-card {
+  margin: auto;
+  height: 90px;
+  width: 30%;
+  }
+
+.dasboard-card-text {
+  //Isso centraliza a div
+  position: absolute;
+  top: 75%;
+  left:35%;
+  transform:translate(-50%,-50%);
+  // cor e outras caracteristicas
+  
+  font-size: 30px;
+}
+.card-ganhos {
+  background-image: url('/assets/img/19333414.jpg');
+  background-size: cover;
+
+}
+.card-gastos {
+  background-image: url('/assets/img/19333415.jpg');
+  background-size: cover;
+}
+table {
+  width: 100%;
+}
+
+
+
+
+//////////////////@at-root
+
+
+.outerContainer {
+  padding: 5px;
+
+  box-sizing: content-box;
+
+}
+
+div.container {
+  color: #ffffff;
+  margin-bottom: 10px;
+
+}
+
+
+///////////////////////////////////
+
+
+  .container{
+   margin: 5%;
+   height:71%;
+  
+  }

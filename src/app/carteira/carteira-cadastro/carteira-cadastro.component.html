@@ -1,0 +1,36 @@
+
+<mat-grid-list cols="4" rowHeight="2:1">
+
+    <mat-grid-tile colspan="4" rowspan='3'>
+        <mat-card>
+            <form [formGroup]="options" (submit)="submit()">
+            <h3>Cadastro da Carteira <span style="float: right  ;">Total: {{carteiraValue}} $RS</span> </h3>
+            <hr>
+            <div style="width: 50%;">
+                <mat-form-field class="entradas" appearance="fill">
+                    <mat-label>Valor</mat-label>
+                    <input matInput type="number" class="example-right-align" placeholder="0"[formControl]="valor" required>
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix>.00</span>
+                    <mat-error *ngIf="valor.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div style="width: 50%;">
+             
+                <mat-label style="margin: 7px;">Opção </mat-label>
+                <mat-radio-group [formControl]="type" appearance="fill">
+                    <mat-radio-button value='0' style="margin-right: 10px;"> <span>+</span> </mat-radio-button>
+                    <mat-radio-button value='1'> <span>-</span> </mat-radio-button>
+                    <mat-error *ngIf="type.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-radio-group>
+            
+            </div>
+           
+            <div style=" margin:20px;position: absolute; right: 0;bottom:   0;"> 
+                <button mat-raised-button color="primary" type="submit">Comfirmar</button>
+            </div>
+        </form>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

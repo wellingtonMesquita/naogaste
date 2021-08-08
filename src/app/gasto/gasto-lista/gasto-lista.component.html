@@ -1,0 +1,52 @@
+<div fxLayout="row" fxLayout.sm="column">
+  <br>
+  <mat-card-title style="font-size: 35px;margin:30px;"> Lista de Gastos </mat-card-title>
+</div>
+<hr>
+
+
+<div class="container">
+  <a mat-raised-button color="accent" type="submit" [routerLink]="'cadastro'" style="margin-left: 91%;margin-bottom: 10px;">Novo Gasto</a>
+  <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+
+    <table mat-table [dataSource]="dataSource" class=" tabela mat-elevation-z8">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef> Valor </th>
+        <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let element">{{ element.data | date: 'dd/MM/yyyy' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> <span *ngIf='element.status == 0'>Quitado</span> <span
+            *ngIf='element.status == 1'>A Quitar</span> </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+
+
+  </div>
+  <div class="container">
+    <div class="flex-container " fxLayout="row" fxLayout.xs="column">
+    <mat-paginator class="paginacao"(page)="onChangePage($event)" [length]="totalDeElementos" [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+    </div>
+  </div>
