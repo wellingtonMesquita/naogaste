@@ -9,7 +9,7 @@ import { Page } from '../models/page';
 })
 export class GastoService {
 
-  url = 'http://localhost:8080'; // api rest fake
+  url = 'https://naogaste-back.herokuapp.com'; // api rest fake
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
