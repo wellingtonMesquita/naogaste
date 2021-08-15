@@ -42,24 +42,23 @@ export class DashboardComponent implements OnInit {
  
     this.getGastoValue();
     this.getGastos();
-    this.getCarteiraValue();
+    
   }
   getGastos() {
     this.gastoService.getGastosLimited().subscribe((gastos: any) => {
       this.gastos = gastos;
-      
+     
     });
   }
   getGastoValue(){
     this.gastoService.getGasto().subscribe((gasto: any) => {
       this.gastoValue = gasto;
-      console.log( 'amedobobo',this.gastoValue)
+      this.getCarteiraValue();
     });
   }
   getCarteiraValue(){
     this.carteriraService.getCarteira().subscribe((carteira: any) =>{
-      console.log(carteira);
-      this.carteiraValue = carteira;
+      this.carteiraValue = (carteira - this.gastoValue);
     });
   }
   displayedColumns: string[] = ['nome','valor','data','status'];
